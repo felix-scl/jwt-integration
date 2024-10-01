@@ -5,6 +5,7 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      screens: { xs: "496px" },
       fontFamily: {
         lato: ["Lato", "sans-serif"],
         rammetto: ["Rammetto One", "sans-serif"],
