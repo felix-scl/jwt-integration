@@ -7,9 +7,9 @@ export default {
     extend: {
       screens: { xs: "496px" },
       fontFamily: {
-        lato: ["Lato", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
         rammetto: ["Rammetto One", "sans-serif"],
-        josefina: ["Josefin Sans", "sans-serif"],
+        josefin: ["Josefin Sans", "sans-serif"],
       },
       colors: {
         "black-primary": "#0E0F0C",
