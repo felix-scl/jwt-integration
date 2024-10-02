@@ -1,12 +1,10 @@
 import { NavLink } from "react-router-dom";
+import Logo from "./Logo";
 
 function Header() {
   return (
     <header className="flex items-center justify-between border border-b-slate-950/10 px-6 py-3 font-semibold text-black-secondary lg:border-0 lg:px-20 lg:py-6">
-      <a href="#" className="font-josefin text-xl font-bold">
-        <span className="hidden uppercase tracking-widest sm:inline">Wise</span>
-        <span className="sm:hidden">W</span>
-      </a>
+      <Logo />
 
       <nav className="flex gap-8">
         <ul className="hidden gap-1 md:flex">
