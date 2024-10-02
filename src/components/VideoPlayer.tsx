@@ -16,7 +16,7 @@ const VideoPlayer = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative mx-auto max-w-[800px]">
       <video
         ref={videoRef}
         loop
@@ -30,7 +30,6 @@ const VideoPlayer = () => {
           WebkitBackfaceVisibility: "hidden",
           WebkitMaskImage: "-webkit-radial-gradient(white, black)",
         }}
-        className="absolute -bottom-40 -left-14"
       >
         <source
           src="3d-globe.webm"
@@ -41,7 +40,7 @@ const VideoPlayer = () => {
 
       <button
         onClick={togglePlayPause}
-        className="absolute -bottom-40 right-0 rounded-full border-2 border-slate-950/20 p-1"
+        className="absolute bottom-4 right-4 rounded-full border-2 border-slate-950/20 p-1"
       >
         {isPlaying ? (
           <svg
@@ -63,6 +62,7 @@ const VideoPlayer = () => {
             height="24"
             viewBox="0 0 24 24"
             fill="currentColor"
+            className="h-5 w-5 text-gray-500"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M6 4v16a1 1 0 0 0 1.524 .852l13 -8a1 1 0 0 0 0 -1.704l-13 -8a1 1 0 0 0 -1.524 .852z" />
