@@ -23,7 +23,7 @@ function Home() {
             <div className="flex flex-col gap-6 font-semibold text-black-secondary xs:flex-row xs:items-center xs:justify-center xs:gap-4 lg:text-lg">
               <a
                 href="#"
-                className="rounded-full bg-green-primary px-6 py-3 text-center"
+                className="hover:bg-green-secondary rounded-full bg-green-primary px-6 py-3 text-center"
               >
                 Open an account
               </a>

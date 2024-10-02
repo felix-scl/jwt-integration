@@ -46,7 +46,7 @@ function Header() {
           <li>
             <NavLink
               to="/get-otp"
-              className="rounded-full bg-green-primary px-4 py-1.5"
+              className="hover:bg-green-secondary rounded-full bg-green-primary px-4 py-1.5"
             >
               Start Here
             </NavLink>
