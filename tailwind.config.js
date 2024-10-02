@@ -16,6 +16,7 @@ export default {
         "black-secondary": "#163300",
         "grey-primary": "#454745",
         "green-primary": "#9FE870",
+        "green-secondary": "#80E142",
       },
     },
   },
