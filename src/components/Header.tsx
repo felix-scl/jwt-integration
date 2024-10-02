@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 function Header() {
   return (
     <header className="flex items-center justify-between border border-b-slate-950/10 px-6 py-3 font-semibold text-black-secondary lg:border-0 lg:px-20 lg:py-6">
@@ -44,9 +46,12 @@ function Header() {
             </a>
           </li>
           <li>
-            <a href="#" className="rounded-full bg-green-primary px-4 py-1.5">
+            <NavLink
+              to="/get-otp"
+              className="rounded-full bg-green-primary px-4 py-1.5"
+            >
               Start Here
-            </a>
+            </NavLink>
           </li>
         </ul>
       </nav>
