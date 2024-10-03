@@ -44,7 +44,7 @@ function GetOtp() {
       <main>
         <section className="mt-16 px-6 md:px-10 lg:mt-24">
           <div className="mx-auto space-y-10 transition-all duration-300 xs:max-w-[400px] lg:max-w-[500px]">
-            {otpSent ? (
+            {!otpSent ? (
               <>
                 <header className="space-y-4 text-center">
                   <h1 className="text-3xl font-semibold text-black-primary">
