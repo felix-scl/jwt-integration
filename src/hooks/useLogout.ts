@@ -1,7 +1,7 @@
 import { useState } from "react";
-import axios from "axios";
+import api from "../api/axios";
 
-const URL = `${import.meta.env.VITE_BACKEND_URL}/users/logout/`;
+const URL = `/users/logout/`;
 
 function useLogout() {
   const [isLoading, setIsLoading] = useState(false);
@@ -9,11 +9,14 @@ function useLogout() {
   const logout = async (refreshToken: string) => {
     setIsLoading(true);
     try {
-      const response = await axios.post(URL, {
+      const response = await api.post(URL, {
         refresh: refreshToken,
       });
 
-      return response;
+      if (response.status === 200) {
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
+      }
     } catch (error) {
       console.log(`There was an error with the request: ${error}`);
     } finally {

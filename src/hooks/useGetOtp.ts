@@ -1,7 +1,7 @@
 import { useState } from "react";
-import axios from "axios";
+import api from "../api/axios";
 
-const URL = `${import.meta.env.VITE_BACKEND_URL}/users/get-otp/`;
+const URL = `/users/get-otp/`;
 
 function useGetOtp() {
   const [isLoading, setIsLoading] = useState(false);
@@ -9,7 +9,7 @@ function useGetOtp() {
   const getOtp = async (email: string) => {
     setIsLoading(true);
     try {
-      const response = await axios.post(URL, {
+      const response = await api.post(URL, {
         email,
       });
 

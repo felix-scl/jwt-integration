@@ -1,7 +1,7 @@
 import { useState } from "react";
-import axios from "axios";
+import api from "../api/axios";
 
-const URL = `${import.meta.env.VITE_BACKEND_URL}/users/login/`;
+const URL = `/users/login/`;
 
 function useLogin() {
   const [isLoading, setIsLoading] = useState(false);
@@ -9,10 +9,18 @@ function useLogin() {
   const login = async (email: string, otp: string) => {
     setIsLoading(true);
     try {
-      const response = await axios.post(URL, {
+      const response = await api.post(URL, {
         email,
         token: otp,
       });
+
+      if (response.status === 200) {
+        const { access, refresh } = response.data;
+
+        localStorage.setItem("accessToken", access);
+        localStorage.setItem("refreshToken", refresh);
+      }
+
       return response;
     } catch (error) {
       console.log(`There was an error with the request: ${error}`);
