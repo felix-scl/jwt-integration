@@ -2,6 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import Logo from "../components/Logo";
 import { SubmitHandler, useForm } from "react-hook-form";
 import useLogin from "../hooks/useLogin";
+import { useEffect } from "react";
 
 type Inputs = {
   email: string;
@@ -16,6 +17,14 @@ function Login() {
   } = useForm<Inputs>();
   const { login, isLoading } = useLogin();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+
+    if (accessToken) {
+      navigate("/profile");
+    }
+  }, [navigate]);
 
   const handleLogin: SubmitHandler<Inputs> = async (data) => {
     const response = await login(data.email, data.password);

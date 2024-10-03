@@ -1,8 +1,18 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import VideoPlayer from "../components/VideoPlayer";
+import { useEffect } from "react";
 
 function Home() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+
+    if (accessToken) {
+      navigate("/profile");
+    }
+  }, [navigate]);
+
   return (
     <>
       <Header />

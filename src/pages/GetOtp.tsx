@@ -1,8 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Logo from "../components/Logo";
 import { SubmitHandler, useForm } from "react-hook-form";
 import useGetOtp from "../hooks/useGetOtp";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type Inputs = {
   email: string;
@@ -16,6 +16,15 @@ function GetOtp() {
   } = useForm<Inputs>();
   const { getOtp, isLoading } = useGetOtp();
   const [otpSent, setOtpSent] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+
+    if (accessToken) {
+      navigate("/profile");
+    }
+  }, [navigate]);
 
   const handleGetOtp: SubmitHandler<Inputs> = async (data) => {
     const response = await getOtp(data.email);
