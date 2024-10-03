@@ -36,12 +36,12 @@ function Header() {
 
         <ul className="flex gap-3">
           <li>
-            <a
-              href="#"
+            <NavLink
+              to="/login"
               className="px-2 py-1.5 hover:rounded-full hover:bg-stone-200/50"
             >
               Log in
-            </a>
+            </NavLink>
           </li>
           <li>
             <NavLink

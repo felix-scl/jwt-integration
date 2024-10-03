@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import Header from "../components/Header";
 import VideoPlayer from "../components/VideoPlayer";
 
@@ -21,12 +22,12 @@ function Home() {
             </div>
 
             <div className="flex flex-col gap-6 font-semibold text-black-secondary xs:flex-row xs:items-center xs:justify-center xs:gap-4 lg:text-lg">
-              <a
-                href="#"
+              <NavLink
+                to="/get-otp"
                 className="hover:bg-green-secondary rounded-full bg-green-primary px-6 py-3 text-center"
               >
                 Open an account
-              </a>
+              </NavLink>
               <a
                 href="#"
                 className="px-6 py-3 text-center underline underline-offset-[6px]"

@@ -53,7 +53,7 @@ function GetOtp() {
                   <p className="text-sm text-grey-primary">
                     Already have a code?{" "}
                     <NavLink
-                      to="/"
+                      to="/login"
                       className="font-bold text-black-secondary underline underline-offset-4 transition-all duration-300 hover:text-slate-600/80"
                     >
                       Log in
