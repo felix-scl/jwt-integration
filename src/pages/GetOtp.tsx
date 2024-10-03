@@ -1,7 +1,22 @@
 import { NavLink } from "react-router-dom";
 import Logo from "../components/Logo";
+import { SubmitHandler, useForm } from "react-hook-form";
+
+type Inputs = {
+  email: string;
+};
 
 function GetOtp() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>();
+
+  const handleGetOtp: SubmitHandler<Inputs> = (data) => {
+    console.log(data);
+  };
+
   return (
     <>
       <header className="flex items-center justify-between border border-b-slate-950/10 px-6 py-3 font-semibold text-black-secondary lg:border-0 lg:px-20 lg:py-6">
@@ -37,17 +52,33 @@ function GetOtp() {
                 </NavLink>
               </p>
             </header>
-            <form className="w-full space-y-6">
+
+            <form
+              className="w-full space-y-10"
+              onSubmit={handleSubmit(handleGetOtp)}
+            >
               <div>
                 <label htmlFor="email" className="text-grey-primary">
                   Enter your email address
                 </label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  className="w-full rounded-xl border border-[#00000080] px-4 py-3 transition-shadow duration-700 hover:shadow-[inset_0_0_0_2px_#00000080] focus:border-black-secondary focus:shadow-[inset_0_0_0_2.5px_#163300] focus:outline-none"
-                />
+                <div className="relative">
+                  <input
+                    type="email"
+                    id="email"
+                    className="w-full rounded-xl border border-[#00000080] px-4 py-3 transition-shadow duration-700 hover:shadow-[inset_0_0_0_2px_#00000080] focus:border-black-secondary focus:shadow-[inset_0_0_0_2.5px_#163300] focus:outline-none"
+                    {...register("email", {
+                      required: {
+                        value: true,
+                        message: "This field is required",
+                      },
+                    })}
+                  />
+                  {errors.email && (
+                    <span className="absolute -bottom-5 left-0 text-xs text-red-500">
+                      {errors.email.message}
+                    </span>
+                  )}
+                </div>
               </div>
               <button
                 type="submit"
