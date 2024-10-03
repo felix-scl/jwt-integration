@@ -21,11 +21,6 @@ function Login() {
     const response = await login(data.email, data.password);
 
     if (response?.status === 200) {
-      const { access, refresh } = response.data;
-
-      localStorage.setItem("accessToken", access);
-      localStorage.setItem("refreshToken", refresh);
-
       navigate("/profile");
     }
   };
